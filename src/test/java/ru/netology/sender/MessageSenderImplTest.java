@@ -32,7 +32,7 @@ public class MessageSenderImplTest {
         );
         MessageSenderImpl messageSender = new MessageSenderImpl(geoService, localizationService);
         String test = messageSender.send(new HashMap<String, String>());
-        Mockito.verify(geoService, Mockito.atLeastOnce());
+        Mockito.verify(geoService, Mockito.atLeastOnce()).byIp(Mockito.anyString());
         Assertions.assertEquals("Добро пожаловать", test);
     }
 
@@ -49,6 +49,7 @@ public class MessageSenderImplTest {
         );
         MessageSenderImpl messageSender = new MessageSenderImpl(geoService, localizationService);
         String test = messageSender.send(new HashMap<String, String>());
+        Mockito.verify(geoService, Mockito.atLeastOnce()).byIp(Mockito.anyString());
         Assertions.assertEquals("Welcome", test);
     }
 
